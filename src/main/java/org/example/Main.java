@@ -15,14 +15,15 @@ public class Main {
         DataRepository.dataLoad();
 
         while(true){
-            System.out.print("입력(o[order]: 주문, q[quit]: 종료) : ");
+            System.out.println("Command >> [주문 : o, order ] [종료 : q, quit ]");
+            System.out.print("input : ");
             com = sc.nextLine();
             if(com.compareTo("q") == 0 || com.compareTo("quit") == 0) {
                 OrderController.quitCommand();
                 break;
             }
             else if (com.compareTo("o") == 0 || com.compareTo("order") == 0) {
-                System.out.println("ooo");
+                OrderController.orderCommand();
 
                 // service에서 전체 목록 불러오는 거
 
