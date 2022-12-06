@@ -1,8 +1,10 @@
 package org.example.controller;
 
+import org.example.service.KartService;
+import org.example.service.OrderService;
+
 import java.util.Scanner;
 
-import static java.util.Formatter.Conversion.isInteger;
 
 public class OrderController {
 
@@ -21,10 +23,20 @@ public class OrderController {
             num = sc.nextLine();
             if (com.compareTo(" ")==0 && num.compareTo(" ")==0){
                 // 결제
-                System.out.print("결제");
+                try{
+                    if(OrderService.order() == false) {
+                        throw new Exception("SoldOutException");
+                    }
+                }catch(Exception e){
+                    System.out.println("SoldOutException");
+                    e.printStackTrace();
+                }
             }
             else if(isInteger(com) && isInteger(num)){
                 // 추가하고 새로운 결제 또 받기
+                KartService.addKart(Integer.valueOf(com), Integer.valueOf(num));
+
+                KartService.showKart();
             }
         }
     }

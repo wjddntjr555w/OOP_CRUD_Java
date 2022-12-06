@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.controller.OrderController;
+import org.example.domain.Data;
 import org.example.repository.DataRepository;
 
 import java.util.Scanner;
@@ -12,7 +13,8 @@ public class Main {
         String com;
 
         //DB Load
-        DataRepository.dataLoad();
+        DataRepository dataRepository = new DataRepository();
+        dataRepository.dataLoad();
 
         while(true){
             System.out.println("Command >> [주문 : o, order ] [종료 : q, quit ]");
@@ -27,6 +29,9 @@ public class Main {
 
                 // service에서 전체 목록 불러오는 거
 
+            }
+            else{
+                System.out.println("잘못된 입력이 들어왔습니다. 다시 입력해주세요.");
             }
         }
     }
