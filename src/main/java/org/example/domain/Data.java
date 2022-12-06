@@ -48,6 +48,10 @@ public class Data {
         this.dataCount = dataCount;
     }
 
+    public void setDataCountIndex(ArrayList dataCount, int x, int count){
+        dataCount.set(x,count);
+        this.dataCount = dataCount;
+    }
     @Override
     public String toString() {
         return "Data{" +

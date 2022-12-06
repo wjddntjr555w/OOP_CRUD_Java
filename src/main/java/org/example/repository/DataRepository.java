@@ -32,10 +32,12 @@ public class DataRepository {
                 tmpList = Arrays.asList(array);
                 System.out.println(tmpList);
 //                ret.add(tmpList);
-                tempNum.add(array[0]);
-                tempName.add(array[1]);
-                tempPrice.add(array[2]);
-                tempCount.add(array[3]);
+                if(isInteger(array[0]) && isInteger(array[2]) && isInteger(array[3])) {
+                    tempNum.add(Integer.valueOf(array[0]));
+                    tempName.add(array[1]);
+                    tempPrice.add(Integer.valueOf(array[2]));
+                    tempCount.add(Integer.valueOf(array[3]));
+                }
             }
             data.setDataNum(tempNum);
             data.setDataName(tempName);
@@ -59,5 +61,14 @@ public class DataRepository {
 
     public static Data showData() {
         return new Data(data.getDataNum(),data.getDataName(),data.getDataPrice(),data.getDataCount());
+    }
+
+    private static boolean isInteger(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch(NumberFormatException e) {
+            return false;
+        }
     }
 }
