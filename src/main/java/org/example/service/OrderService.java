@@ -3,16 +3,14 @@ package org.example.service;
 import org.example.domain.Data;
 import org.example.domain.Item;
 import org.example.repository.DataRepository;
-import org.example.repository.KartRepository;
-
-import java.util.ArrayList;
+import org.example.repository.CartRepository;
 
 public class OrderService {
     public static boolean order() {
 
         Data data = DataRepository.showData();
         System.out.println(data.toString());
-        Item item = KartRepository.showItem();
+        Item item = CartRepository.showItem();
 
         for(int i = 0; i< item.getCom().size(); i++) {
             for(int j = 0; j < data.getDataNum().size(); j++){

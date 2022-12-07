@@ -3,9 +3,8 @@ package org.example.repository;
 import org.example.domain.Item;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class KartRepository {
+public class CartRepository {
 
 
     private static ArrayList comArr = new ArrayList();
@@ -18,4 +17,10 @@ public class KartRepository {
     public static Item showItem(){
         return new Item(comArr,numArr);
     }
+
+    public static void setNum(int num,int idx){
+        int temp = (int) numArr.get(idx);
+        numArr.set(idx,temp+num);
+    }
+
 }

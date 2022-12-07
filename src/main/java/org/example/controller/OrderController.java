@@ -1,6 +1,6 @@
 package org.example.controller;
 
-import org.example.service.KartService;
+import org.example.service.CartService;
 import org.example.service.OrderService;
 
 import java.util.Scanner;
@@ -34,9 +34,9 @@ public class OrderController {
             }
             else if(isInteger(com) && isInteger(num)){
                 // 추가하고 새로운 결제 또 받기
-                KartService.addKart(Integer.valueOf(com), Integer.valueOf(num));
+                CartService.addCart(Integer.valueOf(com), Integer.valueOf(num));
 
-                KartService.showKart();
+                CartService.showCart();
             }
         }
     }
