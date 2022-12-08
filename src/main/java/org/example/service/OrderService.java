@@ -9,7 +9,7 @@ public class OrderService {
     public static boolean order() {
 
         Data data = DataRepository.showData();
-        System.out.println(data.toString());
+//        System.out.println(data.toString());
         Item item = CartRepository.showItem();
 
         for(int i = 0; i< item.getCom().size(); i++) {

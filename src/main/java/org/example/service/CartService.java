@@ -30,4 +30,8 @@ public class CartService {
         Item itemList = CartRepository.showItem();
         System.out.println(itemList.toString());
     }
+
+    public static void clearCart() {
+        CartRepository.delItem();
+    }
 }

@@ -23,4 +23,8 @@ public class CartRepository {
         numArr.set(idx,temp+num);
     }
 
+    public static void delItem() {
+        comArr = new ArrayList();
+        numArr = new ArrayList();
+    }
 }

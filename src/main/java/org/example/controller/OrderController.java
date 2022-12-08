@@ -31,6 +31,8 @@ public class OrderController {
                     System.out.println("SoldOutException");
                     e.printStackTrace();
                 }
+
+                CartService.clearCart();
             }
             else if(isInteger(com) && isInteger(num)){
                 // 추가하고 새로운 결제 또 받기
