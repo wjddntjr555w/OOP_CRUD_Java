@@ -1,6 +1,6 @@
 package org.example.service;
 
-import org.example.domain.Item;
+import org.example.domain.Cart;
 import org.example.repository.CartRepository;
 
 import java.util.ArrayList;
@@ -10,8 +10,8 @@ public class CartService {
 
 
     public static void addCart(int com, int num) {
-        Item itemList = CartRepository.showItem();
-        ArrayList com1 = itemList.getCom();
+        Cart cartList = CartRepository.showItem();
+        ArrayList com1 = cartList.getCom();
         int flag = 0;
         for (int i = 0; i< com1.size(); i++){
             if(com1.get(i).equals(com)){
@@ -27,8 +27,8 @@ public class CartService {
     }
 
     public static void showCart(){
-        Item itemList = CartRepository.showItem();
-        System.out.println(itemList.toString());
+        Cart cartList = CartRepository.showItem();
+        System.out.println(cartList.toString());
     }
 
     public static void clearCart() {

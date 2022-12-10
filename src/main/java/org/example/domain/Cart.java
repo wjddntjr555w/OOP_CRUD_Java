@@ -2,11 +2,11 @@ package org.example.domain;
 
 import java.util.ArrayList;
 
-public final class Item{
+public final class Cart {
     private ArrayList com;
     private ArrayList num;
 
-    public Item(ArrayList com, ArrayList num) {
+    public Cart(ArrayList com, ArrayList num) {
         this.com = com;
         this.num = num;
     }

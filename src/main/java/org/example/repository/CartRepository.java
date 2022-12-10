@@ -1,6 +1,6 @@
 package org.example.repository;
 
-import org.example.domain.Item;
+import org.example.domain.Cart;
 
 import java.util.ArrayList;
 
@@ -14,8 +14,8 @@ public class CartRepository {
         numArr.add(num);
     }
 
-    public static Item showItem(){
-        return new Item(comArr,numArr);
+    public static Cart showItem(){
+        return new Cart(comArr,numArr);
     }
 
     public static void setNum(int num,int idx){
