@@ -9,8 +9,6 @@ import org.example.repository.CartRepository;
 import java.util.Scanner;
 
 public class OrderService {
-
-    private static OrderService orderService = new OrderService();
     private static CartService cartService = new CartService();
 
     private static DataRepository dataRepository = new DataRepository();
@@ -52,7 +50,7 @@ public class OrderService {
     public Boolean payment() {
         // 결제
         try{
-            if(orderService.order() == false) {
+            if(order() == false) {
                 throw new Exception("SoldOutException");
             }
         }catch(Exception e){
