@@ -59,11 +59,11 @@ public class DataRepository {
         }
     }
 
-    public static Data showData() {
+    public Data showData() {
         return new Data(data.getDataNum(),data.getDataName(),data.getDataPrice(),data.getDataCount());
     }
 
-    private static boolean isInteger(String str) {
+    private boolean isInteger(String str) {
         try {
             Double.parseDouble(str);
             return true;

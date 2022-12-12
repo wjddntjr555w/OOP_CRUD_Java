@@ -9,21 +9,21 @@ public class CartRepository {
 
     private static ArrayList comArr = new ArrayList();
     private static ArrayList numArr = new ArrayList();
-    public static void addItem(int com, int num){
+    public void addItem(int com, int num){
         comArr.add(com);
         numArr.add(num);
     }
 
-    public static Cart showItem(){
+    public Cart showItem(){
         return new Cart(comArr,numArr);
     }
 
-    public static void setNum(int num,int idx){
+    public void setNum(int num,int idx){
         int temp = (int) numArr.get(idx);
         numArr.set(idx,temp+num);
     }
 
-    public static void delItem() {
+    public void delItem() {
         comArr = new ArrayList();
         numArr = new ArrayList();
     }

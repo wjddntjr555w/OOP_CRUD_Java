@@ -1,5 +1,7 @@
 package org.example.controller;
 
+import org.example.domain.Cart;
+import org.example.domain.CartItem;
 import org.example.service.CartService;
 import org.example.service.OrderService;
 
@@ -8,37 +10,25 @@ import java.util.Scanner;
 
 public class OrderController {
 
+    private static OrderService orderService = new OrderService();
     public static void quitCommand(){
         System.out.println("종료합니다.");
     }
 
     public static void orderCommand() {
-        Scanner sc = new Scanner(System.in);
-        String com;
-        String num;
+        String com = null;
+        String num = null;
+        Boolean flag;
+        CartItem cartItem = new CartItem();
         while(true){
-            System.out.print("상품번호 : ");
-            com = sc.nextLine();
-            System.out.print("개수 : ");
-            num = sc.nextLine();
-            if (com.compareTo(" ")==0 && num.compareTo(" ")==0){
-                // 결제
-                try{
-                    if(OrderService.order() == false) {
-                        throw new Exception("SoldOutException");
-                    }
-                }catch(Exception e){
-                    System.out.println("SoldOutException");
-                    e.printStackTrace();
-                }
-
-                CartService.clearCart();
+            cartItem = orderService.productOrder();
+            if (cartItem.getCom().compareTo(" ")==0 && cartItem.getNum().compareTo(" ")==0){
+                flag = orderService.payment();
+                break;
             }
-            else if(isInteger(com) && isInteger(num)){
-                // 추가하고 새로운 결제 또 받기
-                CartService.addCart(Integer.valueOf(com), Integer.valueOf(num));
 
-                CartService.showCart();
+            else if(isInteger(cartItem.getCom()) && isInteger(cartItem.getNum())){
+                orderService.addCart(Integer.valueOf(cartItem.getCom()), Integer.valueOf(cartItem.getNum()));
             }
         }
     }
