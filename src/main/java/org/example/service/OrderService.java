@@ -10,9 +10,31 @@ import java.util.Scanner;
 
 public class OrderService {
     private static CartService cartService = new CartService();
-
+    private static OrderService orderService = new OrderService();
     private static DataRepository dataRepository = new DataRepository();
     private static CartRepository cartRepository = new CartRepository();
+    private static CartItem cartItem = new CartItem();
+    public static void quit() {
+        System.out.println("종료합니다.");
+    }
+
+    public static void quitCommand() {
+    }
+
+    public static void orderCommand() {
+        while(true){
+            cartItem = orderService.productOrder();
+            if (cartItem.getCom().compareTo(" ")==0 && cartItem.getNum().compareTo(" ")==0){
+                orderService.payment();
+                break;
+            }
+
+            else if(isInteger(cartItem.getCom()) && isInteger(cartItem.getNum())){
+                orderService.addCart(Integer.valueOf(cartItem.getCom()), Integer.valueOf(cartItem.getNum()));
+            }
+        }
+    }
+
     public boolean order() {
 
         Data data = dataRepository.showData();
@@ -79,5 +101,14 @@ public class OrderService {
         cartItem.setCom(com);
         cartItem.setNum(num);
         return cartItem;
+    }
+
+    private static boolean isInteger(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch(NumberFormatException e) {
+            return false;
+        }
     }
 }
