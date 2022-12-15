@@ -28,7 +28,6 @@ public class CartService {
 
     public void showCart(){
         Cart cartList = cartRepository.showItem();
-//        System.out.println(cartList.toString());
     }
 
     public void clearCart() {
