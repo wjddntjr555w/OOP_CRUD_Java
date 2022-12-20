@@ -46,7 +46,7 @@ public class OrderService {
             for (int j = 0; j < data.getDataNum().size(); j++) {
                 if (cart.getCom().get(i).equals(data.getDataNum().get(j))) {
                     if (Integer.valueOf(String.valueOf(cart.getNum().get(i))) > Integer.valueOf(String.valueOf(data.getDataCount().get(j)))) {
-                        // arraylist에서 바로 int로 변환****
+                        // 값을 가져오도록
                         return false;
                     } else {
                         int temp = Integer.valueOf(String.valueOf(data.getDataCount().get(j))) - Integer.valueOf(String.valueOf(cart.getNum().get(i)));

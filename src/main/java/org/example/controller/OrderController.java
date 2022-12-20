@@ -17,7 +17,6 @@ public class OrderController {
     }
 
     public static void orderCommand() {
-
         OrderService.orderCommand();
     }
 

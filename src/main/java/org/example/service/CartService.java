@@ -21,13 +21,14 @@ public class CartService {
             }
         }
         if (flag == 0) {
+            // 중복되는 물품이 카트에 담기면 추가 ****
             cartRepository.addItem(com, num);
         }
-        // 중복되는 물품이 카트에 담기면 추가 ****
+
     }
 
     public void showCart(){
-        Cart cartList = cartRepository.showItem();
+        cartRepository.showItem();
     }
 
     public void clearCart() {
