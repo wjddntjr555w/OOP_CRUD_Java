@@ -1,6 +1,7 @@
 package org.example.repository;
 
 import org.example.domain.Data;
+import org.example.service.OrderService;
 
 import java.io.*;
 import java.net.URL;
@@ -32,7 +33,7 @@ public class DataRepository {
                 tmpList = Arrays.asList(array);
                 System.out.println(tmpList);
 //                ret.add(tmpList);
-                if(isInteger(array[0]) && isInteger(array[2]) && isInteger(array[3])) {
+                if(OrderService.isInteger(array[0]) && OrderService.isInteger(array[2]) && OrderService.isInteger(array[3])) {
                     tempNum.add(Integer.valueOf(array[0]));
                     tempName.add(array[1]);
                     tempPrice.add(Integer.valueOf(array[2]));
@@ -63,12 +64,4 @@ public class DataRepository {
         return new Data(data.getDataNum(),data.getDataName(),data.getDataPrice(),data.getDataCount());
     }
 
-    private boolean isInteger(String str) {
-        try {
-            Double.parseDouble(str);
-            return true;
-        } catch(NumberFormatException e) {
-            return false;
-        }
-    }
 }

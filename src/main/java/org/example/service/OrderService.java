@@ -103,7 +103,8 @@ public class OrderService {
         return cartItem;
     }
 
-    private static boolean isInteger(String str) {
+    public static boolean isInteger(String str) {
+        // isInteger를 서비스와 레포지토리에서도 사용하는데... 합칠 방법?
         try {
             Double.parseDouble(str);
             return true;
